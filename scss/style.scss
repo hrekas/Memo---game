@@ -83,13 +83,41 @@
 .crazygame{
     display: flex;
     flex-wrap:	wrap;
-    justify-content:	center;
+    justify-content:center;
     height: 100%;
     .card{
       border-radius: 10%;
       height: 170px;
       width: 170px;
       margin: 10px;
+      background-image: url(../images/M.jpg);
+      background-repeat:no-repeat;
+      background-position: center;
+      background-size:cover;
+    }
+    .card.next1{
+      background-image: url(../images/image1.png);
+      border: green solid 3px;
+    }
+    .card.next2{
+      background-image: url(../images/image2.png);
+      border: green solid 3px;
+    }
+    .card.next3{
+      background-image: url(../images/image3.png);
+      border: green solid 3px;
+    }
+    .card.next4{
+      background-image: url(../images/image4.png);
+      border: green solid 3px;
+    }
+    .card.next5{
+      background-image: url(../images/image5.png);
+      border: green solid 3px;
+    }
+    .card.next6{
+      background-image: url(../images/image6.png);
+      border: green solid 3px;
     }
 
 }
