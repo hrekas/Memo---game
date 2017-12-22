@@ -14,13 +14,13 @@ class Home extends React.Component {
       yourname: event.target.value
      }, this.sendData);
   }
-  sendData = ()=> {
-    if (typeof this.props.route.getdata === "function") {
-          this.props.route.getdata(this.state.yourname);
-    }
-  }
+  // sendData = ()=> {
+  //   if (typeof this.props.route.getdata === "function") {
+  //         let yourName = this.state.yourname;
+  //         this.props.route.getdata(yourName);
+  //   }
+  // }
   render(){
-    console.log(this.props);
     return (
         <div className="row">
           <div className="col maxwidth main">

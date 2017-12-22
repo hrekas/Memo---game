@@ -8,9 +8,10 @@ class GameCard extends React.Component {
         };
   }
   clickCard = (event) =>{
-    // console.log(this.props.id);
-    if (typeof this.props.getCard === "function") {
-      this.props.getCard(this.props.id, this.props.card.id)
+    if ( this.props.onof < 2){
+        if (typeof this.props.getCard === "function") {
+          this.props.getCard(this.props.id, this.props.card.id)
+        }
     }
   }
 

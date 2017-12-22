@@ -12,7 +12,7 @@ class GameBoard extends React.Component {
           visibleCards: [],
           compare: "",
           guessed:[],
-          counter: 1
+          counter: 0
         };
   }
   getVisibleCards = (id, fit)=>{
@@ -27,18 +27,16 @@ class GameBoard extends React.Component {
     }
     if (this.state.visibleCards.length === 2 && this.state.compare === fit){
         console.log("tadaaaam");
-        // if (typeof this.props.getCard === "function") {
-        //
-        // }
         let newGuess = this.state.guessed
         let newVisible = this.state.visibleCards
         let compile = [...newGuess, ...newVisible]
         this.setTimeoutId = setTimeout(()=>{
-          this.setState({
-              visibleCards: [],
-              guessed: compile,
-              counter: this.state.counter + 1
-          },this.props.showanimal(this.state.counter, fit))
+            this.setState({
+                visibleCards: [],
+                guessed: compile,
+                counter: this.state.counter + 1
+            }, ()=> this.props.showanimal(this.state.counter, this.state.guessed.length, fit)
+            )
         },2000);
 
 
@@ -49,7 +47,7 @@ class GameBoard extends React.Component {
           this.setState({
               visibleCards: [],
               counter: this.state.counter + 1
-          },this.props.showanimal(this.state.counter))
+          }, ()=> this.props.showanimal(this.state.counter, this.state.guessed.length))
         },2000);
 
 
@@ -59,12 +57,13 @@ class GameBoard extends React.Component {
   render(){
     const numberList = [1, 2, 2, 3, 5, 4, 4, 3, 1, 5, 6, 6];
     // console.log(this.props.mix); // podmienić
+
     return (
       <div className="container">
       <div className="crazygame">
         {
           numberList.map( (value,index) => {
-            return <GameCard display={this.state.visibleCards.indexOf(index)>-1}
+            return <GameCard onof={this.state.visibleCards.length} display={this.state.visibleCards.indexOf(index)>-1}
               guessed={this.state.guessed.indexOf(index)>-1} getCard={this.getVisibleCards} key={index} id={index} card={this.props.data[value - 1]}/>
           })
         }

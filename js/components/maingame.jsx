@@ -1,4 +1,6 @@
 import React from 'react';
+import {IndexLink} from 'react-router';
+
 import GameBoard from "./gameboard.jsx";
 import GameInfo from "./gameinfo.jsx";
 
@@ -41,7 +43,8 @@ class MainGame extends React.Component {
         super(props);
         this.state	=	{
           showanimal: "",
-          counter: 0
+          counter: 0,
+          endgame: 0
         };
   }
   randomNumber = () =>{
@@ -60,14 +63,18 @@ class MainGame extends React.Component {
     }
     return mix;
   }
-  showAnimal = (counter, animalNr) => {
+  showAnimal = (counter, endgame, animalNr) => {
     this.setState({
       showanimal: animalNr,
-      counter: counter
+      counter: counter,
+      endgame: endgame
     })
   }
 
   render(){
+    if (this.state.endgame == 12){
+      console.log("you win");
+    }
     let showAnim = Number(this.state.showanimal)-1;
     return (
       <div className="row">
@@ -77,6 +84,10 @@ class MainGame extends React.Component {
           <div className="col main">
             <GameInfo showanimal={showAnim} data={data} counter={this.state.counter}/>
           </div>
+          {
+            this.state.endgame == 12 ? <div className="fullScreen"><h1>BRAWO</h1><h2>Udało Ci się znaleźć wszystkie pary w {this.state.counter} krokach</h2> <button><IndexLink to="/">NEW GAME</IndexLink></button></div> : <div></div>
+          }
+
       </div>
      );
   }

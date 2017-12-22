@@ -17,23 +17,23 @@ import MainGame from "./components/maingame.jsx";
 // }
 
 class App extends React.Component {
-    constructor(props)	{
-          super(props);
-          this.state	=	{
-            yourname:"dd"
-          };
-    }
-    getData = (name) =>{
-          this.setState({
-            yourname: name
-          })
-    }
+    // constructor(props)	{
+    //       super(props);
+    //       this.state	=	{
+    //         yourname:"dd"
+    //       };
+    // }
+    // getData = (name) =>{
+    //       this.setState({
+    //         yourname: name
+    //       })
+    // }
    render(){
      return (
        <Router	history={hashHistory}>
           <Route	path='/' component={Template}>
-     				 <IndexRoute getdata={this.getData} component={Home}/>
-     			   <Route name={this.state.yourname}	path='/game' component={MainGame}/>
+     				 <IndexRoute component={Home}/>
+     			   <Route path='/game' component={MainGame}/>
           </Route>
  			 </Router>
      );

@@ -13,7 +13,7 @@ class Template extends React.Component {
               <h2>Memory Game for Kids</h2>
             </div>
             <div className="col header">
-                <button><IndexLink to="/" className="" activeClassName="">NEW GAME</IndexLink></button>
+                <IndexLink to="/" className="" activeClassName=""><button>NEW GAME</button></IndexLink>
             </div>
 
           </div>
