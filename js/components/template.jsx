@@ -13,9 +13,11 @@ class Template extends React.Component {
               <h2>Memory Game for Kids</h2>
             </div>
             <div className="col header">
-              <IndexLink to="/" className="" activeClassName="">HOME</IndexLink>
+                <button><IndexLink to="/" className="" activeClassName="">NEW GAME</IndexLink></button>
             </div>
+
           </div>
+          <hr/>
           {this.props.children}
           <div className="row">
              <Footer/>

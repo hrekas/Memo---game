@@ -4,7 +4,7 @@ class Footer extends React.Component {
   render(){
     return (
       <div className="col maxwidth footer">
-        <h1>Footer</h1>
+        <p>&copy; 2017 Hania's Game</p>
       </div>
      );
   }

@@ -8,12 +8,16 @@ class GameInfo extends React.Component {
     console.log(this.props.data);
     let animal
     return (
-      <div className="container">
-          <h2>Counter: {this.props.counter}</h2>
+      <div className="container info">
+          <h2 className="counter">Steps: {this.props.counter}</h2>
 
           {
-            this.props.showanimal >-1 ? <h2>{this.props.data[this.props.showanimal].animal}</h2> :
-            <h2></h2>
+            this.props.showanimal >-1 ?
+            <div>
+              <h2 className="showanimal">well done</h2>
+              <h2 className="showanimal">{this.props.data[this.props.showanimal].animal}</h2>
+            </div> :
+            <div><h2 className="showanimal"></h2></div>
           }
 
       </div>

@@ -24,17 +24,18 @@ class Home extends React.Component {
     return (
         <div className="row">
           <div className="col maxwidth main">
-            <h1>Memory Game</h1>
-            <h3>Write your name</h3>
+            <h1>Animals Memory Game</h1>
+
             <form>
+              <h2>Write your name:</h2>
               <input onChange={this.changeHandler} type="text" name="yourname" value={this.state.yourname} placeholder="Name..." />
 
             </form>
 
             { this.state.yourname.length > 0 ?
-            <div>
+            <div className="sayhello">
               <h1> Hello {this.state.yourname}</h1>
-              <IndexLink to="/game" className="" activeClassName="">START GAME</IndexLink>
+              <button><IndexLink to="/game" className="" activeClassName="">START GAME</IndexLink></button>
             </div> :
             <div></div>  }
           </div>

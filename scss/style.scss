@@ -1,8 +1,12 @@
 *
 {
-    border: blue solid 1px;
+    // border: blue solid 1px;
     box-sizing: border-box;
     margin: 0;
+}
+body
+{
+  font-family: "Raleway", sans-serif;
 }
 @media (max-width: 459px){
   .container{
@@ -12,7 +16,7 @@
     height: 100%;
       .row{
           .col{
-              background-color: lightgrey;
+              background-color: #E0E0E0;
           }
           .col.header{
             height: 150px;
@@ -42,9 +46,8 @@
         display: flex;
         width: 100%;
           .col{
-             background-color: lightgrey;
+             background-color: #E0E0E0;
              height: 100px;
-
             &:nth-of-type(1){
                width:	70%;
             }
@@ -74,12 +77,102 @@
   }
 }
 
-.col.maxwidth.main, .col.header{
+.col.maxwidth.main,{
       display: flex;
       align-items:center;
       justify-content: space-around;
       flex-direction: column;
 }
+
+//home--------------------------
+form{
+  display: flex;
+  flex-direction: column;
+  align-items:center;
+  justify-content: space-between;
+  h2{
+    margin-bottom: 30px;
+  }
+  input{
+    padding: 10px 20px;
+    border: #FFD700 solid 2px;
+    font-size: 20px;
+    width: 280px;
+    border-radius: 15px;
+  }
+}
+
+.sayhello{
+   display: flex;
+   flex-direction: column;
+   align-items:center;
+   justify-content: space-between;
+   h1{
+     margin-bottom: 30px;
+   }
+   button{
+    background-color: #FFD700;
+    border: none;
+    color: white;
+    padding: 20px 40px;
+    text-align: center;
+    border-radius: 15px;
+    font-size: 24px;
+    font-weight: 700;
+     a:visited, a:active, a:link, a:hover
+     {
+       text-decoration: none;
+       color: #ffffff;
+     }
+   }
+}
+//header-------------------------------------
+.header{
+  display: flex;
+  align-items:center;
+  h2{
+    margin-left: 30px;
+  }
+  button{
+    margin: 0 auto;
+    background-color: #FFD700;
+    border: none;
+    color: white;
+    padding: 40px 15px;
+    text-align: center;
+    border-radius: 15px;
+    font-size: 24px;
+    font-weight: 700;
+     a:visited, a:active, a:link, a:hover
+     {
+       text-decoration: none;
+       color: #ffffff;
+     }
+  }
+}
+//footer------------------------------------
+.footer{
+  display: flex;
+  align-items:center;
+  p{
+    margin-left: 30px;
+  }
+}
+//game info------------------------------------
+.info{
+  align-items:center;
+  flex-direction: column;
+  .counter{
+    margin-top: 30px;
+  }
+  .showanimal{
+    margin-top: 30px;
+    padding: 10px;
+    text-align: justify;
+  }
+}
+
+//main game-------------------------------------
 .crazygame{
     display: flex;
     flex-wrap:	wrap;
@@ -97,27 +190,27 @@
     }
     .card.next1{
       background-image: url(../images/image1.png);
-      border: green solid 3px;
+      border: #FFD700 solid 3px;
     }
     .card.next2{
       background-image: url(../images/image2.png);
-      border: green solid 3px;
+      border: #FFD700 solid 3px;
     }
     .card.next3{
       background-image: url(../images/image3.png);
-      border: green solid 3px;
+      border: #FFD700 solid 3px;
     }
     .card.next4{
       background-image: url(../images/image4.png);
-      border: green solid 3px;
+      border: #FFD700 solid 3px;
     }
     .card.next5{
       background-image: url(../images/image5.png);
-      border: green solid 3px;
+      border: #FFD700 solid 3px;
     }
     .card.next6{
       background-image: url(../images/image6.png);
-      border: green solid 3px;
+      border: #FFD700 solid 3px;
     }
 
 }
