@@ -7,33 +7,64 @@ const data = [
     {
       id: 1,
       class: "next1",
-      animal: "To jest Słoń, ma długą trąbę"
+      animal: "To jest Słoń, ma długą trąbę."
     },
     {
       id: 2,
       class: "next2",
-      animal: "To jest Kurczaczek, jest żółty i mięciutki"
+      animal: "To jest Kurczaczek, jest żółty i mięciutki."
     },
     {
       id: 3,
       class: "next3",
-      animal: "To jest Żaba, kumka i mieszka w stawie"
+      animal: "To jest Żaba, kumka i mieszka w stawie."
     },
     {
       id: 4,
       class: "next4",
-      animal: "To jest Panda, multikulturowe zwierze białe, czarne i azjatyckie"
+      animal: "To jest Panda, multikulturowe zwierze białe, czarne i azjatyckie."
     },
     {
       id: 5,
       class: "next5",
-      animal: "To jest Jelonek, ma rogi i raciczki"
+      animal: "To jest Jelonek, ma rogi i raciczki."
     },
     {
       id: 6,
       class: "next6",
-      animal: "To jest Lew, ma grzywę i jest królem zwierząt"
+      animal: "To jest Lew, ma grzywę i jest królem zwierząt."
     },
+    {
+      id: 7,
+      class: "next7",
+      animal: "To jest Kot, pije mleczko i mruczy."
+    },
+    {
+      id: 8,
+      class: "next8",
+      animal: "To jest Pingwin, jaskółka, która jadła po 18."
+    },
+    {
+      id: 9,
+      class: "next9",
+      animal: "To jest Jeż, mieszka w lesie i ma igły na plecach."
+    },
+    {
+      id: 10,
+      class: "next9",
+      animal: "To jest Lis, jest sprytny i ma rude futerko."
+    },
+    {
+      id: 11,
+      class: "next9",
+      animal: "To jest Koala, lubi jeść liście eukaliptusa."
+    },
+    {
+      id: 12,
+      class: "next9",
+      animal: "To jest Mysz, chowa się przed kotem do dziurki."
+    },
+
 ]
 
 
@@ -48,11 +79,22 @@ class MainGame extends React.Component {
   }
 
   showAnimal = (counter, endgame, animalNr) => {
-    this.setState({
-      showanimal: animalNr,
-      counter: counter,
-      endgame: endgame
-    })
+    if (endgame ==12) {
+      this.setTimeoutID = setTimeout(()=>{
+          this.setState({
+            showanimal: animalNr,
+            counter: counter,
+            endgame: endgame
+          })
+      },3000);
+
+    }else{
+      this.setState({
+        showanimal: animalNr,
+        counter: counter,
+        endgame: endgame
+      })
+    }
   }
 
   render(){

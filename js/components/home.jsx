@@ -34,6 +34,12 @@ class Home extends React.Component {
             <form>
               <h2>Write your name:</h2>
               <input onChange={this.changeHandler} type="text" name="yourname" value={this.state.yourname} placeholder="Name..." />
+              {/* <h2>Choose level:</h2>
+              <select name="option" value={this.state.option} onChange={this.universalHandler}>
+                <option value="Ala">Ala</option>
+                <option value="ma">ma</option>
+              </select> */}
+
 
             </form>
 
