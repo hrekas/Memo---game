@@ -62,7 +62,7 @@ class GameBoard extends React.Component {
       <div className="container">
       <div className="crazygame">
         {
-          numberList.map( (value,index) => {
+          this.props.mix.map( (value,index) => {
             return <GameCard onof={this.state.visibleCards.length} display={this.state.visibleCards.indexOf(index)>-1}
               guessed={this.state.guessed.indexOf(index)>-1} getCard={this.getVisibleCards} key={index} id={index} card={this.props.data[value - 1]}/>
           })

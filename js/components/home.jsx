@@ -1,12 +1,12 @@
 import React from 'react';
-import {IndexLink} from 'react-router';
 
 
 class Home extends React.Component {
   constructor(props)	{
         super(props);
         this.state	=	{
-        yourname: "",
+        newgame: true,
+        yourname: ""
         };
   }
   changeHandler = (event)=>{
@@ -14,12 +14,17 @@ class Home extends React.Component {
       yourname: event.target.value
      }, this.sendData);
   }
-  // sendData = ()=> {
-  //   if (typeof this.props.route.getdata === "function") {
-  //         let yourName = this.state.yourname;
-  //         this.props.route.getdata(yourName);
-  //   }
-  // }
+  clickButton = ()=>{
+    this.setState({
+      newgame: false
+    }, this.sendData);
+  }
+
+  sendData = ()=> {
+    if (typeof this.props.getdata === "function") {
+          this.props.getdata(this.state.yourname, this.state.newgame);
+    }
+  }
   render(){
     return (
         <div className="row">
@@ -35,7 +40,7 @@ class Home extends React.Component {
             { this.state.yourname.length > 0 ?
             <div className="sayhello">
               <h1> Hello {this.state.yourname}</h1>
-              <button><IndexLink to="/game" className="" activeClassName="">START GAME</IndexLink></button>
+              <button onClick={this.clickButton}>START GAME</button>
             </div> :
             <div></div>  }
           </div>

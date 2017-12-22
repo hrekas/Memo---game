@@ -1,5 +1,4 @@
 import React from 'react';
-import {IndexLink} from 'react-router';
 
 import Footer from "./footer.jsx";
 
@@ -13,7 +12,7 @@ class Template extends React.Component {
               <h2>Memory Game for Kids</h2>
             </div>
             <div className="col header">
-                <IndexLink to="/" className="" activeClassName=""><button>NEW GAME</button></IndexLink>
+                <a href="/"><button>NEW GAME</button></a>
             </div>
 
           </div>

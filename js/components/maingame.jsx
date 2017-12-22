@@ -1,5 +1,4 @@
 import React from 'react';
-import {IndexLink} from 'react-router';
 
 import GameBoard from "./gameboard.jsx";
 import GameInfo from "./gameinfo.jsx";
@@ -47,22 +46,7 @@ class MainGame extends React.Component {
           endgame: 0
         };
   }
-  randomNumber = () =>{
-    let randomNumbersArray =[];
-    for (let i = 1; i < 7; i++) {
-    randomNumbersArray.push(i);
-    }
-    let mix = [...randomNumbersArray, ...randomNumbersArray];
-    let len, x, j;
 
-    for (len = mix.length-1; len > 0; len--) {
-      j = Math.floor(Math.random() * (len + 1));
-      x = mix[len];
-      mix[len] = mix[j];
-      mix[j] = x;
-    }
-    return mix;
-  }
   showAnimal = (counter, endgame, animalNr) => {
     this.setState({
       showanimal: animalNr,
@@ -72,20 +56,19 @@ class MainGame extends React.Component {
   }
 
   render(){
-    if (this.state.endgame == 12){
-      console.log("you win");
-    }
+    console.log(this.props.mix);
+
     let showAnim = Number(this.state.showanimal)-1;
     return (
       <div className="row">
           <div className="col main">
-            <GameBoard data={data} showanimal={this.showAnimal} mix={this.randomNumber()}/>
+            <GameBoard data={data} showanimal={this.showAnimal} mix={this.props.mix}/>
           </div>
           <div className="col main">
-            <GameInfo showanimal={showAnim} data={data} counter={this.state.counter}/>
+            <GameInfo yourname={this.props.yourname} showanimal={showAnim} data={data} counter={this.state.counter}/>
           </div>
           {
-            this.state.endgame == 12 ? <div className="fullScreen"><h1>BRAWO</h1><h2>Udało Ci się znaleźć wszystkie pary w {this.state.counter} krokach</h2> <button><IndexLink to="/">NEW GAME</IndexLink></button></div> : <div></div>
+            this.state.endgame == 12 ? <div className="fullScreen"><h1>BRAWO</h1><h2>Udało Ci się znaleźć wszystkie pary w {this.state.counter} krokach</h2> <button><a href="/">NEW GAME</a></button></div> : <div></div>
           }
 
       </div>

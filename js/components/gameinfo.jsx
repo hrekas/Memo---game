@@ -9,6 +9,7 @@ class GameInfo extends React.Component {
     let animal
     return (
       <div className="container info">
+          <h1 className="showanimal">Hi {this.props.yourname}</h1>
           <h2 className="counter">Steps: {this.props.counter}</h2>
 
           {

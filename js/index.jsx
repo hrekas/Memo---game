@@ -1,12 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import	{	Router,
-		Route,
-		// Link,
-		// IndexLink,
-		IndexRoute,
-		hashHistory
-}	from	'react-router';
+
 import Template from "./components/template.jsx";
 import Home from "./components/home.jsx";
 import MainGame from "./components/maingame.jsx";
@@ -17,25 +11,43 @@ import MainGame from "./components/maingame.jsx";
 // }
 
 class App extends React.Component {
-    // constructor(props)	{
-    //       super(props);
-    //       this.state	=	{
-    //         yourname:"dd"
-    //       };
-    // }
-    // getData = (name) =>{
-    //       this.setState({
-    //         yourname: name
-    //       })
-    // }
+    constructor(props)	{
+          super(props);
+          this.state	=	{
+						newgame: true,
+            yourname:""
+          };
+    }
+		randomNumber = () =>{
+			let randomNumbersArray =[];
+			for (let i = 1; i < 7; i++) {
+			randomNumbersArray.push(i);
+			}
+			let mix = [...randomNumbersArray, ...randomNumbersArray];
+			let len, x, j;
+
+			for (len = mix.length-1; len > 0; len--) {
+				j = Math.floor(Math.random() * (len + 1));
+				x = mix[len];
+				mix[len] = mix[j];
+				mix[j] = x;
+			}
+			return mix;
+		}
+    getData = (yourname, newgame) =>{
+          this.setState({yourname, newgame})
+    }
    render(){
+		 let mixed = this.randomNumber();
      return (
-       <Router	history={hashHistory}>
-          <Route	path='/' component={Template}>
-     				 <IndexRoute component={Home}/>
-     			   <Route path='/game' component={MainGame}/>
-          </Route>
- 			 </Router>
+          <Template>
+						{
+							this.state.newgame ?
+							<Home getdata={this.getData}/> :
+							<MainGame mix={mixed} yourname={this.state.yourname}/>
+						}
+          </Template>
+
      );
    }
 }
